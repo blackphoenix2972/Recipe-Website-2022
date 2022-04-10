@@ -1,0 +1,11 @@
+#container-header {
+  
+    display: flex;
+    
+    background-color: white;
+    flex-flow: row-reverse;
+}
+#container-header > div {
+    margin: 30px;
+    font-size: 20px;
+}
