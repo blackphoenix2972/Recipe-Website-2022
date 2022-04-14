@@ -33,7 +33,7 @@
     grid-gap: 20px;;
     justify-content: space-around;
 }
-
+h{}
 @media (max-width: 480px) {
     .food-grid {
         grid-template-columns: 1fr;
