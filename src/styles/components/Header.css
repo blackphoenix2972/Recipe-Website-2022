@@ -9,3 +9,25 @@
     margin: 30px;
     font-size: 20px;
 }
+.header-button:hover {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+   transition: 0.5s;
+   cursor: pointer;
+    text-align: center;
+    
+   
+}
+.header-button:hover > a {
+    
+    color: white;
+   
+   
+}
+.header-button > a {
+    text-decoration: none;
+
+    color: black;
+}

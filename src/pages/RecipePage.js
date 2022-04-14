@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -9,6 +9,8 @@ import Header from "../components/Header.js";
 import "../styles/RecipePage.css";
 import TextField from "@mui/material/TextField";
 import OutlinedInput from '@mui/material/OutlinedInput';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Button from '@mui/material/Button';
 const RecipePage = () => {
   const [search_text, set_search_text] = useState("");
@@ -81,45 +83,38 @@ const ITEM_PADDING_TOP = 8;
   const textHandle = (event) => {
     set_search_text(event.target.value)
   }
+  useEffect(() => {
+    AOS.init({once: true});
+    AOS.refresh();
+  }, []);
   return (
     <>
       <Header />
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <div className="banner-img">
           <img src="http://cdn.shopify.com/s/files/1/0424/4399/7341/files/Website_banner_3_-_holiday_sale_1200x1200.png?v=1642805961" width="50%" />
         </div>
         <div style={{textAlign:'center'}}>
-          <h1>Explore Recipes</h1><br/>
+          <h1><b>Explore Recipes</b></h1><br/>
         </div>
         <div style={{margin:'20px'}}>
         <TextField id="outlined-basic" label="Search Recipe" onChange={textHandle} variant="outlined" fullWidth='true'/>
         </div>
         <div className="search-grid">
-          {/* <div>
-            <DropDownMenu label_title='Cuisine' menu_props={MenuProps} value={cuisine} onChange={handleChange} data={cuisine_type} />
-   
-        </div>  */}
-      
-        {/* <div>
-        <DropDownMenu label_title='Meal Types' menu_props={MenuProps} value={meal} onChange={handleMeals} data={meal_type} />
         
         </div>
-        <div>
-        <DropDownMenu label_title='Diet' menu_props={MenuProps} value={diet} onChange={handleDiet} data={diet_type} />
-        </div> */}
-        </div>
         <div style={{backgroundColor:'red', textAlign:'center', margin:20}}>
-        <Button variant="contained" fullWidth='true' onClick={onClickHandler} style={{backgroundColor:'red',fontSize:20, padding:10}}>Contained</Button>
+        <Button variant="contained" fullWidth='true' onClick={onClickHandler} style={{backgroundColor:'red',fontSize:20, padding:10}}>Search Recipe</Button>
         </div>
         <div className="content">
-        <div className="food-grid" >
+        <div className="food-grid">
           {!photos
             ? "no photos"
             : Object.values(photos).map((post, indx) => {
                 let url = "/nutrients/" + post.id;
                 return (
                   
-                    <div className="food-container">
+                    <div className="food-container" data-aos="fade-up" data-aos-duration="600">
                       <img src={post.image} alt="Alt text" width='300px'></img>
                       <h3>
                         <a href={url}>{post.title}</a>

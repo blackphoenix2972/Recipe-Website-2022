@@ -1,6 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import '../styles/Nutrients.css'
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Table from 'react-bootstrap/Table'
+import Header from "../components/Header";
 
+// 19876f023c9742af9d6a92a463450d93
+// 491d569998e647a2b00ee7791bd9d5a6
 const Nutrients = (props) => {
   const title = props.title;
   const url = window.location.href;
@@ -10,7 +17,7 @@ const Nutrients = (props) => {
   const id = strs.at(-1);
 
   let number_id = Number(id);
-  const API_KEY = "491d569998e647a2b00ee7791bd9d5a6";
+  const API_KEY = "19876f023c9742af9d6a92a463450d93";
   const URL =
     "https://api.spoonacular.com/recipes/" +
     String(number_id) +
@@ -39,33 +46,54 @@ let x = `https://spoonacular.com/cdn/ingredients_${SIZE}/`;
 
   return (
     <>
-      
-      <img src={image} />
+    <Header/>
+    <Container>
+      <div className="image-container">
+      <img src={image} width='500px' />
+      </div>
+     </Container>
+     
       <p>
-        {instructions}
+        <Container>
+        <h3><b>Instructions:</b></h3>
+        {instructions.map((instruction,index) => {
+          return (
+            <div>
+              {console.log('Hello  ' +ingredientImage)}
+              
+              <p>{index+1} - {instruction}</p>
+              
+              </div>
+          );
+        })}
+        </Container>
       </p>
-      <p>
-       {ingredients.map((value)=>{
+      <Container>
+        <h3><b>Ingredients:</b></h3><br/>
+      <p><div className="ingredients-grid-container">
+      
+       {ingredients.map((value, index)=>{
          return (
            <>
            
-              {value}
+     <div>
+               <img src={x + ingredientImage[index]} width='100px' />
+                <div style={{paddingTop:20}}>
+                <p>{value}</p>
+                </div>
+                <br/>
+          </div>    
+          
+        
+
+          
+   
            </>
          );
        })}
-       {
-         ingredientImage.map((p) => {
-           console.log(p);
-           let u = x + p
-           return(<>
-         <img src={u} alt={p}/>
-         </>)})
-       }
-        
-       
-        {/* // Object.keys(ingredients).map((d)=>{console.log('logging : ' + ingredients[d].ingredientName)})} */}
-
+       </div>
       </p>
+      </Container>
     </>
   );
 
@@ -77,15 +105,11 @@ let x = `https://spoonacular.com/cdn/ingredients_${SIZE}/`;
 
   async function get_analyzed_instructions(URL) {
     await axios.get(URL).then((res) => {
-      // console.log(res.data);
-
       for (const key in res.data) {
         for (const index in res.data[key].steps) {
-          // console.log(res.data[key].steps[index].step);     
           setInstructions(prev => [...prev, res.data[key].steps[index].step])
         }
       }
-      // set_analyzed_instructions(res.data)
     });
   }
 

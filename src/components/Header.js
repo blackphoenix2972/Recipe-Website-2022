@@ -24,6 +24,7 @@ const Header = () => {
   let links = ['Home', 'Explore', 'About', 'Contact'];
   let paths = ['/', '/recipes', '/about', '/contact']
   let links_reversed = links.slice().reverse()
+  let paths_reversed = paths.slice().reverse()
   const [width, set_width] = useState(window.innerWidth);
   
   useLayoutEffect(() => {
@@ -39,13 +40,13 @@ const Header = () => {
   return (
     <>
       <div id="container-header">
-      {width <= 900 ? 
+      {width <= 1024 ? 
       <div style={{textAlign:'left', width:'100%'}}>
       <MenuIcon fontSize="large" onClick={()=> {set_display_side_nav(true)}}/> </div>: links_reversed.map((text, index)=> {
     
          return(
-           <div>
-             {text}
+           <div className="header-button">
+             <a href={paths_reversed[index]}>{text}</a>
            </div>
          )
         })}

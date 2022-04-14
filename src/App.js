@@ -11,6 +11,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Contact from './pages/Contact';
 function App() {
   return (
    <>
@@ -19,7 +20,7 @@ function App() {
         <Route exact path="/" element={<HomePage/>}></Route>
         <Route exact path="/recipes" element={<RecipePage/>}></Route>
         <Route exact path="/nutrients/:id" element={<Nutrients/>}></Route>
-
+        <Route exact path="/contact" element={<Contact/>}></Route>
       </Routes>
     </BrowserRouter>
    </>

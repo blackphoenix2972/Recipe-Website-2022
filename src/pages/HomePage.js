@@ -13,12 +13,19 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import Button from "@mui/material/Button";
 import {Link } from "react-router-dom";
 import zoom from "../images/zoom.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const HomePage = () => {
+  useEffect(() => {
+    AOS.init({once: true});
+    AOS.refresh();
+  }, []);
   return (
     <>
       <Header />
       <div className="body">
-        <div className="grid-container">
+        <div className="grid-container" data-aos="fade-up" data-aos-duration="600">
           <div className="content-box">
             <div id="title">
               Welcome To <br />
@@ -52,16 +59,16 @@ const HomePage = () => {
             <img src={veggie} width="50%"></img>
           </div>
         </div>
-        <div className="card-grid">
+        <div className="card-grid" data-aos="fade-left" data-aos-duration="600">
           <div className="divider">
             <div>
               <SearchIcon fontSize="large" />
             </div>
             <div>
-                <h1>Search Recipe</h1>
+                <h2>Search Recipe</h2>
             </div>
-            <div>
-              <h4>Search for a Recipe that you wish to cook</h4>
+            <div className="description">
+              <h5 id="frr">Search for a Recipe that you wish to cook</h5>
             </div>
             
           </div>
@@ -71,10 +78,10 @@ const HomePage = () => {
              <OutdoorGrillIcon fontSize="large" />
              </div>
              <div>
-                <h1>Make Recipe</h1>
+                <h2>Make Recipe</h2>
             </div>
-            <div>
-              <h4>Follow the steps in order to make the recipe</h4>
+            <div className="description">
+              <h5>Follow the steps in order to make the recipe</h5>
             </div>
             
          </div>
@@ -84,10 +91,10 @@ const HomePage = () => {
              <EmojiEmotionsIcon fontSize="large" />
              </div>
              <div>
-                <h1>Enjoy Recipe</h1>
+                <h2>Enjoy Recipe</h2>
             </div>
-            <div>
-              <h4>Enjoy your food!</h4>
+            <div className="description">
+              <h5>Enjoy your food!</h5>
             </div>
             
          </div>

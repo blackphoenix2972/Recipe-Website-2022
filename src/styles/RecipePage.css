@@ -11,15 +11,18 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     background-color: black;
+    margin:20px;
+    border-radius: 20px;
 }
 
 
 .food-container {
     border: 1px solid black;
-    margin:50px;
+    margin:20px;
     padding:20px;
     background-color: aliceblue;
     text-align: center;
+    border-radius: 20px;
 }
 
 .search-grid {
@@ -29,4 +32,37 @@
     padding:20px;
     grid-gap: 20px;;
     justify-content: space-around;
+}
+
+@media (max-width: 480px) {
+    .food-grid {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+
+    }
+
+    .food-container {
+       margin: 20px;
+       padding:5px;
+       margin-top: 20px;
+
+    }
+    .food-container > img {
+        width: 70%;
+        padding: 20px;
+    }
+    .banner-img >img {
+        width: 100%;
+    }
+    .grid-container {
+        margin: 20px;
+    }
+}
+
+@media (min-width:481px) and (max-width: 1024px) {
+    .food-grid {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 50px;
+        margin: 10px;
+    }
 }
