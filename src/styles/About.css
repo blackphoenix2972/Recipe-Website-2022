@@ -1,0 +1,15 @@
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+   
+
+
+}
+.content-grid >div {
+   
+    font-family: Arial, Helvetica, sans-serif;
+    justify-self: center;
+    align-self: center;
+    margin:20px;
+   
+}

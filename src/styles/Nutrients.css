@@ -39,10 +39,13 @@ p {
     align-self: center;
    
 }
-@media (max-width: 480px) {
+@media (min-width: 100px) and (max-width: 780px) {
     .ingredients-grid-container {
         grid-template-columns: 1fr;
         margin-top: 50px;
+    }
+    .image-container > img {
+        width: 100%;
     }
     .ingredients-grid-container > div {
         width: 100%;
@@ -51,15 +54,25 @@ p {
         margin-top: 20px;
     }
 }
-@media (min-width:481px) and (max-width: 1024px) {
-    .ingredients-grid-container > div {
-        max-width: 200px;
-        
-        max-height: 250px;
-    }
-}
-@media (min-width:810px) and (max-width: 1023px) {
+
+@media (min-width: 781px) and (max-width: 1300px) {
     .ingredients-grid-container {
         grid-template-columns: 1fr 1fr;
+        margin:20px;
+        
     }
+   
 }
+/* @media (min-width:999px) and (max-width: 1024px) {
+    .ingredients-grid-container > div {
+   
+        grid-template-columns: 1fr 1fr;
+       
+    }
+    .image-container >img {
+        width: 100%;
+       
+    }
+} */
+
+

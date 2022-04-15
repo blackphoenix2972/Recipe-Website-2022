@@ -59,9 +59,16 @@ h{}
     }
 }
 
-@media (min-width:481px) and (max-width: 1024px) {
+@media (min-width:776px) and (max-width: 1176px) {
     .food-grid {
         grid-template-columns: 1fr 1fr;
+        margin-top: 50px;
+        margin: 10px;
+    }
+}
+@media (min-width:481px) and (max-width: 775px) {
+    .food-grid {
+        grid-template-columns: 1fr;
         margin-top: 50px;
         margin: 10px;
     }
