@@ -6,8 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table'
 import Header from "../components/Header";
 
-// 19876f023c9742af9d6a92a463450d93
-// 491d569998e647a2b00ee7791bd9d5a6
+
 const Nutrients = (props) => {
   const title = props.title;
   const url = window.location.href;
